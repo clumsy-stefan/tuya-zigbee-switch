@@ -328,12 +328,12 @@ void switch_cluster_on_button_long_press(zigbee_switch_cluster *cluster)
     {
       if (cluster->move_level->moveMode == LEVEL_MOVE_DOWN)
       {
-        zcl_level_moveCmd(cluster->endpoint, &dstEpInfo, FALSE, cluster->move_level);
+        zcl_level_moveWithOnOffCmd(cluster->endpoint, &dstEpInfo, FALSE, cluster->move_level);
         cluster->move_level->moveMode = LEVEL_MOVE_UP;
       }
       else
       {
-        zcl_level_moveCmd(cluster->endpoint, &dstEpInfo, FALSE, cluster->move_level);
+        zcl_level_moveWithOnOffCmd(cluster->endpoint, &dstEpInfo, FALSE, cluster->move_level);
         cluster->move_level->moveMode = LEVEL_MOVE_DOWN;
       }
     }
