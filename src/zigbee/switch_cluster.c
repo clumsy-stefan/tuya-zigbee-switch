@@ -246,8 +246,11 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
     if (cluster->button->long_pressed == true)
     {
       zcl_level_stopWithOnOffCmd(cluster->endpoint, &dstEpInfo, FALSE, NULL);
+      cluster->button->long_pressed = false;
       return;
     }
+
+    cluster->button->long_pressed = false;
 
     switch (cluster->action)
     {
@@ -264,8 +267,8 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
 //      }
       break;
     case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_SYNC:
-      if (cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
-      {
+//      if (cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
+//      {
         if (relay_cluster->relay->on)
         {
           zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
@@ -274,11 +277,11 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
         {
           zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
         }
-      }
+//      }
       break;
     case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_OPPOSITE:
-      if (cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
-      {
+//      if (cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
+//      {
         if (relay_cluster->relay->on)
         {
           zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
@@ -287,7 +290,7 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
         {
           zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
         }
-      }
+//      }
       break;
     }
   }
@@ -295,12 +298,16 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
 
 void switch_cluster_on_button_long_press(zigbee_switch_cluster *cluster)
 {
+  if ( cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE )
+  {
+    cluster->button->long_pressed = false;
+    return;
+  }
+
   cluster->multistate_state = MUTLISTATE_LONG_PRESS;
   switch_cluster_report_action(cluster);
 
-  if (
-    cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY
-    )
+  if ( cluster->mode != ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY )
   {
     return;
   }
