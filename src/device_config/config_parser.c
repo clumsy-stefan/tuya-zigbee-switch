@@ -21,7 +21,7 @@ network_indicator_t network_indicator =
 };
 
 
-move_t move_level =
+move_t level_move =
 {
   .moveMode = LEVEL_MOVE_UP,
   .rate = 20,
@@ -172,7 +172,7 @@ void parse_config()
       switch_clusters[switch_clusters_cnt].relay_mode  = ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE;
       switch_clusters[switch_clusters_cnt].relay_index = switch_clusters_cnt + 1;
       switch_clusters[switch_clusters_cnt].button      = &buttons[buttons_cnt];
-      switch_clusters[switch_clusters_cnt].move_level  = &move_level;
+      switch_clusters[switch_clusters_cnt].level_move  = &level_move;
 
       buttons_cnt++;
       switch_clusters_cnt++;
