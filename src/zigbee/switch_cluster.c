@@ -210,8 +210,7 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
   {
     if 
     (
-      (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE) ||
-      (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_MOVE)
+      cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE
     )
     {
       switch (cluster->action)
@@ -322,7 +321,7 @@ void switch_cluster_on_button_long_press(zigbee_switch_cluster *cluster)
     dstEpInfo.dstAddrMode = APS_DSTADDR_EP_NOTPRESETNT;
 
     if (
-        (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_MOVE) ||
+        (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE) ||
         (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_DETACHED)
       )
     {
