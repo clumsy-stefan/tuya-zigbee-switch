@@ -196,7 +196,7 @@ const definitions = [
         meta: { multiEndpoint: true },
         configure: async (device, coordinatorEndpoint, logger) => {
             {% for switchName in device.switchNames %}
-            await reporting.bind(device.getEndpoint({{loop.index}}), coordinatorEndpoint, ["genMultistateInput"]);
+            await reporting.bind(device.getEndpoint({{loop.index}}), coordinatorEndpoint, ["genMultistateInput", "genLevelCtrl"]);
             {% endfor %}
             {% for relayName in device.relayNames %}
             const endpoint{{loop.index  + (device.switchNames | length)}} = device.getEndpoint({{loop.index  + (device.switchNames | length)}});
