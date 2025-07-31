@@ -20,16 +20,6 @@ network_indicator_t network_indicator =
   .manual_state_when_connected = 1,
 };
 
-
-move_t level_move =
-{
-  .moveMode = LEVEL_MOVE_UP,
-  .rate = 20,
-  .optPresent = 0,
-  .optionsMask =0,
-  .optionsOverride = 0,
-};
-
 led_t leds[5];
 u8    leds_cnt = 0;
 
@@ -46,6 +36,7 @@ zigbee_basic_cluster basic_cluster =
 
 zigbee_group_cluster group_cluster = {};
 
+move_t level_move[4];
 zigbee_switch_cluster switch_clusters[4];
 u8 switch_clusters_cnt = 0;
 
@@ -167,12 +158,18 @@ void parse_config()
       buttons[buttons_cnt].long_press_duration_ms  = 2000;
       buttons[buttons_cnt].multi_press_duration_ms = 800;
 
+      level_move[switch_clusters_cnt].moveMode = LEVEL_MOVE_UP,
+      level_move[switch_clusters_cnt].rate = 20,
+      level_move[switch_clusters_cnt].optPresent = 0,
+      level_move[switch_clusters_cnt].optionsMask =0,
+      level_move[switch_clusters_cnt].optionsOverride = 0,
+
       switch_clusters[switch_clusters_cnt].mode        = ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE;
       switch_clusters[switch_clusters_cnt].action      = ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SIMPLE;
       switch_clusters[switch_clusters_cnt].relay_mode  = ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE;
       switch_clusters[switch_clusters_cnt].relay_index = switch_clusters_cnt + 1;
       switch_clusters[switch_clusters_cnt].button      = &buttons[buttons_cnt];
-      switch_clusters[switch_clusters_cnt].level_move  = &level_move;
+      switch_clusters[switch_clusters_cnt].level_move  = &level_move[switch_clusters_cnt];
 
       buttons_cnt++;
       switch_clusters_cnt++;
