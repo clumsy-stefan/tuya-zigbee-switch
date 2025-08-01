@@ -535,7 +535,7 @@ AVATTO_3_GANG_TOUCH:
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/41
 TS0004_SMY:
   name: TS0004 generic SMY
-  config_str: Custom-FW;TS0004;
+  config_str: Custom-FW;TS0004-CF;
   device_type: router
   tuya_manufacturer_id: 4417
   tuya_image_type: 54179
