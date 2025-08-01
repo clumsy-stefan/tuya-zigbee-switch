@@ -2058,6 +2058,24 @@ const definitions = [
         },
         ota: ota.zigbeeOTA,
     },
+    {
+        zigbeeModel: [
+            "TS0004-CF",
+            "TS0004-Avatto-custom",
+        ],
+        model: "TS0004_switch_module_2",
+        vendor: "Tuya-custom",
+        description: "Custom switch (https://github.com/romasku/tuya-zigbee-switch)",
+        extend: [
+            deviceEndpoints({ endpoints: {} }),
+            romasku.deviceConfig("device_config", ""),
+            onOff({ endpointNames: [] }),
+        ],
+        meta: { multiEndpoint: true },
+        configure: async (device, coordinatorEndpoint, logger) => {
+        },
+        ota: ota.zigbeeOTA,
+    },
 ];
 
 module.exports = definitions;
