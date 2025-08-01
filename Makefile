@@ -1,7 +1,7 @@
 PROJECT_NAME = tlc_switch
 
 BOARD ?= TS0004_SMY
-VERSION = 19
+VERSION = 21
 
 DEBUG = 0
 
