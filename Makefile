@@ -1,7 +1,7 @@
 PROJECT_NAME = tlc_switch
 
 BOARD ?= TS0004_AVATTO
-VERSION = 19
+VERSION = 20
 
 DEBUG = 0
 
