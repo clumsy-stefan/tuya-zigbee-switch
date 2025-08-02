@@ -533,18 +533,33 @@ AVATTO_3_GANG_TOUCH:
   human_name: Avatto Zigbee 3 Gang (ZTS02RD-US-W3)
   status: WIP, expiremntal, see issue.
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/41
-TS0004_SMY:
-  name: TS0004 generic SMY
+TS0004_CF:
+  name: TS0004 generic 4-Gang
   config_str: Custom-FW;TS0004-CF;
   device_type: router
   tuya_manufacturer_id: 4417
   tuya_image_type: 54179
   firmware_image_type: 43999
-  stock_converter_model: TS0004_switch_module_2
+  stock_converter_model: TS0004_switch_module
+  tuya_manufacturer_names:
+  old_zb_models:
+  human_name: Generic TS0004 4-Gang Switch
+  status: Experimental
+  github_issue:
+CLEAN_CF:
+  name: Generic clean FW
+  config_str: Custom-FW;CLEAN-CF;
+  device_type: router
+  tuya_manufacturer_id: 4417
+  tuya_image_type: 54179
+  firmware_image_type: 43999
+  stock_converter_model: Various
   tuya_manufacturer_names:
       - _TZ3000_5ajpkyq6 
+      - _TZ3000_mmkbptmx
+      - _TZ3000_ltt60asa
   old_zb_models:
       - TS0004-Avatto-custom
-  human_name: Generic TS0004
+  human_name: Generic TS0004 4-Gang Switch
   status: Experimental
   github_issue:
