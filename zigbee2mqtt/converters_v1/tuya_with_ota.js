@@ -23,6 +23,7 @@ const tuyaModels = [
     "TS0012_switch_module",
     "TS0013",
     "TS0013_switch_module",
+    "Various",
     "WHD02",
 ];
 
