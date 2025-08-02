@@ -543,7 +543,6 @@ TS0004_CF:
   stock_converter_model: TS0004_switch_module
   tuya_manufacturer_names:
       - CLEAN-CF
-  old_zb_models:
   human_name: Generic TS0004 4-Gang Switch
   status: Experimental
   github_issue:
