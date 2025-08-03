@@ -73,7 +73,7 @@ void onResetMultiClicked(void *_, u8 press_count)
 //   reset_to_default_config();
 //   zb_resetDevice();
     network_config_remove_from_nv();
-    sleep(500);
+    sleep_us(500);
     while (1)
     {
       SYSTEM_RESET();
