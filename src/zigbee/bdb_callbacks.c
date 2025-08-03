@@ -183,8 +183,7 @@ void device_leaveCnfHandler(nlme_leave_cnf_t *pLeaveCnf)
 {
   if (pLeaveCnf->status == SUCCESS)
   {
-//    SYSTEM_RESET();
-    zb_resetDevice();
+    SYSTEM_RESET();
   }
 }
 
