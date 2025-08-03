@@ -46,6 +46,11 @@ void device_config_remove_from_nv()
   nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA);
 }
 
+void network_config_remove_from_nv()
+{
+  nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_BASIC_CONFIG);
+}
+
 void device_config_read_from_nv()
 {
   nv_sts_t st = 0;

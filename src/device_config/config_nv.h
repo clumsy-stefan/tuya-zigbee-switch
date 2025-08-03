@@ -11,6 +11,7 @@ extern struct
 
 void device_config_write_to_nv();
 void device_config_remove_from_nv();
+void network_config_remove_from_nv();
 void device_config_read_from_nv();
 
 #endif
