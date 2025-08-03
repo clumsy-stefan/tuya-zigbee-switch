@@ -11,6 +11,8 @@
 #include "chip_8258/gpio.h"
 #include "config_nv.h"
 
+#define MULTI_PRESS_CNT_TO_RESET    5
+
 extern ota_preamble_t baseEndpoint_otaInfo;
 
 network_indicator_t network_indicator =
@@ -62,6 +64,15 @@ void onResetClicked(void *_)
   factoryReset();
 }
 
+void onResetMultiClicked(void *_, u8 press_count)
+{
+  if (press_count > MULTI_PRESS_CNT_TO_RESET)
+  {
+     reset_to_default_config();
+//     zb_resetDevice();
+  }
+}
+
 void parse_config()
 {
   device_config_read_from_nv();
@@ -100,6 +111,7 @@ void parse_config()
       buttons[buttons_cnt].long_press_duration_ms  = 2000;
       buttons[buttons_cnt].multi_press_duration_ms = 800;
       buttons[buttons_cnt].on_long_press           = onResetClicked;
+      buttons[buttons_cnt].on_multi_press          = onResetMultiClicked;
       buttons_cnt++;
     }
     else if (entry[0] == 'L')
@@ -312,10 +324,9 @@ __attribute__((noreturn)) void reset_to_default_config()
 {
   printf("RESET reset_to_default_config\r\n");
   device_config_remove_from_nv();
-  zb_resetDevice();
   while (1)
   {
-    ;
+    zb_resetDevice();
   }
 }
 

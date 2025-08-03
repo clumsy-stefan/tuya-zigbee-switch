@@ -341,8 +341,8 @@ void switch_cluster_on_button_multi_press(zigbee_switch_cluster *cluster, u8 pre
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
 //     factoryReset();
-//     SYSTEM_RESET();
-     zb_resetDevice();
+     SYSTEM_RESET();
+//     zb_resetDevice();
   }
 }
 
