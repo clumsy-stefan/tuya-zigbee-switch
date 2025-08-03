@@ -10,6 +10,7 @@
 #include "base_components/network_indicator.h"
 #include "chip_8258/gpio.h"
 #include "config_nv.h"
+#include "configs/nv_slots_cfg.h"
 
 #define MULTI_PRESS_CNT_TO_RESET    5
 
@@ -68,9 +69,10 @@ void onResetMultiClicked(void *_, u8 press_count)
 {
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
-    flash_erase_sector(CFG_ADR_BIND);
+//   flash_erase_sector(CFG_ADR_BIND);
 //   reset_to_default_config();
 //   zb_resetDevice();
+    nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_BASIC_CONFIG);
     while (1)
     {
       SYSTEM_RESET();
