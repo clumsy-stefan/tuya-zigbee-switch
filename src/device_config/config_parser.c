@@ -72,11 +72,12 @@ void onResetMultiClicked(void *_, u8 press_count)
 //    tl_bdbReset2FN();
     tl_bdbAttrInit();
     tl_bdbReset();
+    bdb_networkSteerFactoryNew();
 //    zb_reset();
-    while (1)
-    {
-      zb_resetDevice();
-    }
+//    while (1)
+//    {
+//      zb_resetDevice();
+//    }
   }
 }
 
