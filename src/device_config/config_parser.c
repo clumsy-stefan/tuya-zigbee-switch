@@ -69,14 +69,11 @@ void onResetMultiClicked(void *_, u8 press_count)
 {
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
-//   flash_erase_sector(CFG_ADR_BIND);
-//   reset_to_default_config();
-    network_config_remove_from_nv();
-//    sleep_us(500);
+    zb_reset();
+    tl_bdbReset();
     while (1)
     {
       zb_resetDevice();
-//      SYSTEM_RESET();
     }
   }
 }

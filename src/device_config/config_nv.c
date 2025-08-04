@@ -46,11 +46,6 @@ void device_config_remove_from_nv()
   nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size);
 }
 
-void network_config_remove_from_nv()
-{
-  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_BASIC_CONFIG, sizeof(zigbee_basic_cluster_config));
-}
-
 void device_config_read_from_nv()
 {
   nv_sts_t st = 0;
