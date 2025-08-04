@@ -70,15 +70,31 @@ void onResetMultiClicked(void *_, u8 press_count)
 {
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
+
+
+
+ /* leave the network */
+     nlme_leave_req_t req;
+     ZB_IEEE_ADDR_COPY(req.deviceAddr, g_zbMacPib.extAddress);
+     req.rejoin = 0;
+     req.removeChildren = 0;
+     if(!g_bdbCtx.leaveDoing){
+       if(RET_OK == zb_nlmeLeaveReq(&req)){
+          g_bdbCtx.leaveDoing = 1;
+       }
+     }
+
+
+
 //    tl_bdbReset2FN();
 //    bdb_linkKeyCfg(g_bdbCommissionSetting, 1);
 //    tl_bdbAttrInit();
 //    tl_bdbReset();
 //    bdb_networkSteerStart();
 //    stack_init();
-    zb_deviceFactoryNewSet(1);
-    zb_reset();
-    zb_assocJoinReq();
+//    zb_deviceFactoryNewSet(1);
+//    zb_reset();
+//    zb_assocJoinReq();
 //    while (1)
 //    {
 //      zb_resetDevice();
