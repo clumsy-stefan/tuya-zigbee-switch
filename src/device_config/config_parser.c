@@ -69,9 +69,9 @@ void onResetMultiClicked(void *_, u8 press_count)
 {
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
-    tl_bdbReset2FN();
+//    tl_bdbReset2FN();
+    tl_bdbReset();
 //    zb_reset();
-//    tl_bdbReset();
     while (1)
     {
       zb_resetDevice();
