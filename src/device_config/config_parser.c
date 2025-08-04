@@ -5,6 +5,7 @@
 #include "zigbee/switch_cluster.h"
 #include "zigbee/general.h"
 #include "ota.h"
+#include "bdb.h"
 
 #include "base_components/led.h"
 #include "base_components/network_indicator.h"
@@ -70,9 +71,11 @@ void onResetMultiClicked(void *_, u8 press_count)
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
 //    tl_bdbReset2FN();
+//    bdb_linkKeyCfg(g_bdbCommissionSetting, 1);
     tl_bdbAttrInit();
     tl_bdbReset();
-    bdb_networkSteerFactoryNew();
+//    bdb_networkSteerStart();
+    stack_init();
 //    zb_reset();
 //    while (1)
 //    {
