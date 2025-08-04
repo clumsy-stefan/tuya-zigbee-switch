@@ -78,6 +78,7 @@ void onResetMultiClicked(void *_, u8 press_count)
 //    stack_init();
     zb_deviceFactoryNewSet(1);
     zb_reset();
+    zb_assocJoinReq();
 //    while (1)
 //    {
 //      zb_resetDevice();
