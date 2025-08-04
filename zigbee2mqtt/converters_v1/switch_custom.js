@@ -2078,7 +2078,10 @@ const definitions = [
     {
         zigbeeModel: [
             "CLEAN-CF",
+            "_Tuya-TS0004-Avatto-custom",
             "TS0004-Avatto-custom",
+            "TS0004-Avv",
+            "_TZ3000_4channel",
         ],
         model: "Various",
         vendor: "Tuya-custom",
