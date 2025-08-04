@@ -42,13 +42,13 @@ void device_config_write_to_nv()
 
 void device_config_remove_from_nv()
 {
-  nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE);
-  nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA);
+  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size));
+  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size);
 }
 
 void network_config_remove_from_nv()
 {
-  nv_flashSingleItemRemove(1, NV_MODULE_ZCL, NV_ITEM_ZCL_BASIC_CONFIG);
+  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_BASIC_CONFIG, sizeof(zigbee_basic_cluster_config));
 }
 
 void device_config_read_from_nv()
