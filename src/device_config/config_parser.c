@@ -70,6 +70,7 @@ void onResetMultiClicked(void *_, u8 press_count)
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
 //    tl_bdbReset2FN();
+    tl_bdbAttrInit();
     tl_bdbReset();
 //    zb_reset();
     while (1)
