@@ -124,7 +124,7 @@ void switch_cluster_on_button_press(zigbee_switch_cluster *cluster)
   cluster->multistate_state = MULTISTATE_PRESS;
   switch_cluster_report_action(cluster);
 
-  if (cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE)
+  if ((cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE) || (cluster->button->long_press_duration_ms == 0))
     {
       if (cluster->relay_mode == ZCL_ONOFF_CONFIGURATION_RELAY_MODE_RISE)
       {
@@ -201,8 +201,9 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
       (cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE) ||
       (cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
     ) &&
-      (cluster->multistate_state == MULTISTATE_NOT_PRESSED)
-    )
+      (cluster->multistate_state == MULTISTATE_NOT_PRESSED) &&
+      (cluster->button->long_press_duration_ms > 0)
+  )
   {
     if 
     (
@@ -228,55 +229,55 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
         break;
       }
     }
-  }
 
-  if (zb_isDeviceJoinedNwk())
-  {
-    epInfo_t dstEpInfo;
-    TL_SETSTRUCTCONTENT(dstEpInfo, 0);
-
-    dstEpInfo.profileId   = HA_PROFILE_ID;
-    dstEpInfo.dstAddrMode = APS_DSTADDR_EP_NOTPRESETNT;
-
-    if (cluster->multistate_state == MULTISTATE_LONG_PRESS)
+    if (zb_isDeviceJoinedNwk())
     {
-      zcl_level_stopWithOnOffCmd(cluster->endpoint, &dstEpInfo, FALSE, NULL);
-      cluster->multistate_state = MULTISTATE_NOT_PRESSED;
-      switch_cluster_report_action(cluster);
-      return;
-    }
+      epInfo_t dstEpInfo;
+      TL_SETSTRUCTCONTENT(dstEpInfo, 0);
 
-    switch (cluster->action)
-    {
-    case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_ONOFF:
-      zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
-      break;
-    case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_OFFON:
-      zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
-      break;
-    case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SIMPLE:
-      zcl_onOff_toggleCmd(cluster->endpoint, &dstEpInfo, FALSE);
-      break;
-    case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_SYNC:
-      if (relay_cluster->relay->on)
+      dstEpInfo.profileId   = HA_PROFILE_ID;
+      dstEpInfo.dstAddrMode = APS_DSTADDR_EP_NOTPRESETNT;
+
+      if ((cluster->multistate_state == MULTISTATE_LONG_PRESS))
       {
-        zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        zcl_level_stopWithOnOffCmd(cluster->endpoint, &dstEpInfo, FALSE, NULL);
+        cluster->multistate_state = MULTISTATE_NOT_PRESSED;
+        switch_cluster_report_action(cluster);
+        return;
       }
-      else
+
+      switch (cluster->action)
       {
+      case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_ONOFF:
         zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
-      }
-      break;
-    case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_OPPOSITE:
-      if (relay_cluster->relay->on)
-      {
-        zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
-      }
-      else
-      {
+        break;
+      case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_OFFON:
         zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        break;
+      case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SIMPLE:
+        zcl_onOff_toggleCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        break;
+      case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_SYNC:
+        if (relay_cluster->relay->on)
+        {
+          zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        }
+        else
+        {
+          zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        }
+        break;
+      case ZCL_ONOFF_CONFIGURATION_SWITCH_ACTION_TOGGLE_SMART_OPPOSITE:
+        if (relay_cluster->relay->on)
+        {
+          zcl_onOff_offCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        }
+        else
+        {
+          zcl_onOff_onCmd(cluster->endpoint, &dstEpInfo, FALSE);
+        }
+        break;
       }
-      break;
     }
   }
 
