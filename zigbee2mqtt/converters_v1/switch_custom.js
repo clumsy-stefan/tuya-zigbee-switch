@@ -526,6 +526,8 @@ const definitions = [
     },
     {
         zigbeeModel: [
+            "TS0001-AVB",
+            "TS0001-Avatto-custom",
             "TS0001-AV-CUS",
         ],
         model: "TS0001_switch_module",
@@ -558,6 +560,8 @@ const definitions = [
     },
     {
         zigbeeModel: [
+            "TS0002-AVB",
+            "TS0002-Avatto-custom",
             "TS0002-AV-CUS",
         ],
         model: "TS0002_limited",
@@ -604,6 +608,8 @@ const definitions = [
     },
     {
         zigbeeModel: [
+            "TS0003-AVB",
+            "TS0003-Avatto-custom",
             "TS0003-AV-CUS",
         ],
         model: "TS0003_switch_module_2",
@@ -664,8 +670,9 @@ const definitions = [
     },
     {
         zigbeeModel: [
-            "TS0004-AV-CUS",
+            "TS0004-AVB",
             "TS0004-Avatto-custom",
+            "TS0004-AV-CUS",
         ],
         model: "TS0004_switch_module_2",
         vendor: "Tuya-custom",
