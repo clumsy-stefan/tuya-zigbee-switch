@@ -184,9 +184,7 @@ TS0004_AVATTO:
   firmware_image_type: 43529
   stock_converter_model: TS0004_switch_module_2
   tuya_manufacturer_names:
-    - _TZ3000_5ajpkyq6 
-    - Tuya-TS0004-Avatto-custom
-    - TS0004-AV-CUS
+      - _TZ3000_4channel # _TZ3000_5ajpkyq6 / Tuya-TS0004-Avatto-custom
   old_zb_models:
     - TS0004-Avatto-custom
     - TS0004-AV-CUS
