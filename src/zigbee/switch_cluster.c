@@ -201,7 +201,7 @@ void switch_cluster_on_button_release(zigbee_switch_cluster *cluster)
       (cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_TOGGLE) ||
       (cluster->mode == ZCL_ONOFF_CONFIGURATION_SWITCH_TYPE_MOMENTARY)
     ) &&
-      (cluster->multistate_state == MULTISTATE_NOT_PRESSED) &&
+      (cluster->multistate_state == MULTISTATE_LONG_PRESS) &&
       (cluster->button->long_press_duration_ms > 0)
   )
   {
