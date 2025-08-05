@@ -183,6 +183,7 @@ void device_leaveCnfHandler(nlme_leave_cnf_t *pLeaveCnf)
 {
   if (pLeaveCnf->status == SUCCESS)
   {
+    ota_mcuReboot();
 //    SYSTEM_RESET();
 //    zb_resetDevice();
   }
