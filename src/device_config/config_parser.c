@@ -74,6 +74,7 @@ void onResetMultiClicked(void *_, u8 press_count)
 
 
  /* leave the network */
+/*
      nlme_leave_req_t req;
      ZB_IEEE_ADDR_COPY(req.deviceAddr, g_zbMacPib.extAddress);
      req.rejoin = 0;
@@ -83,10 +84,19 @@ void onResetMultiClicked(void *_, u8 press_count)
           g_bdbCtx.leaveDoing = 1;
        }
      }
+*/
 
 
+    tl_bdbReset2FN();
+//    nv_resetAll();
 
-//    tl_bdbReset2FN();
+// app only
+/*
+nv_resetModule(NV_MODULE_APP);
+init_nv_app();
+*/
+
+
 //    bdb_linkKeyCfg(g_bdbCommissionSetting, 1);
 //    tl_bdbAttrInit();
 //    tl_bdbReset();
