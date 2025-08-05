@@ -1,6 +1,6 @@
 PROJECT_NAME = tlc_switch
 
-BOARD ?= TS0004_CF
+BOARD ?= CLEAN_CF
 VERSION = 22
 
 DEBUG ?= 0
