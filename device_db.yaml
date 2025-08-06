@@ -568,6 +568,22 @@ TS0004_CF:
   human_name: Generic TS0004 4-Gang Switch
   status: Experimental
   github_issue:
+TS0004_CFM:
+  name: TS0004 generic 4-Gang
+  config_str: Custom-FW;TS0004-CF;
+  device_type: router
+  tuya_manufacturer_id: 4417
+  tuya_image_type: 43999
+  firmware_image_type: 43999
+  stock_converter_model: TS0004_switch_module
+  tuya_manufacturer_names:
+      - 5ajpkyq6
+      - mmkbptmx
+      - ltt60asa
+      - knoj8lpk
+  human_name: Generic TS0004 4-Gang Switch
+  status: Experimental
+  github_issue:
 CLEAN_CF:
   name: Generic clean FW
   config_str: Custom-FW;CLEAN-CF;
