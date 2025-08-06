@@ -559,6 +559,12 @@ TS0004_CF:
   stock_converter_model: TS0004_switch_module
   tuya_manufacturer_names:
       - _TZ3000-CF
+  old_zb_models:
+      - 5ajpkyq6 
+      - mmkbptmx
+      - ltt60asa
+      - 5ajpkyq6vv
+      - knoj8lpk
   human_name: Generic TS0004 4-Gang Switch
   status: Experimental
   github_issue:
