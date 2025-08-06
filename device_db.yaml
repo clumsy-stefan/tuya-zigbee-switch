@@ -575,6 +575,7 @@ CLEAN_CF:
       - _TZ3000_mmkbptmx
       - _TZ3000_ltt60asa
       - _TZ3000_5ajpkyq6vv
+      - _TZ3000_knoj8lpk
   old_zb_models:
       - _Tuya-TS0004-Avatto-custom
       - TS0004-Avatto-custom
