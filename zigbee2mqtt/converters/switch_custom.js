@@ -2067,6 +2067,11 @@ const definitions = [
     {
         zigbeeModel: [
             "TS0004-CF",
+            "5ajpkyq6",
+            "mmkbptmx",
+            "ltt60asa",
+            "5ajpkyq6vv",
+            "knoj8lpk",
         ],
         model: "TS0004_switch_module",
         vendor: "Tuya-custom",
