@@ -129,6 +129,7 @@ CONFIGS = [
     "Tuya-TS0004-custom;TS0004-custom;BB6u;LB1;SC1u;RB7;SC2u;RB5;SC3u;RB4;SD2u;RC4;",
     "Avatto-3-touch;Avatto-3-touch;LB5;SD3u;RC2;SD7u;RC3;SD4u;RD2;M;",
     "Custom-FW;TS0004-CF;",
+    "Custom-FW;TS0004-CF;",
     "Custom-FW;CLEAN-CF;",
 ]
 
