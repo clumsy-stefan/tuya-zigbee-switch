@@ -577,6 +577,7 @@ TS0004_CFM:
   firmware_image_type: 43999
   stock_converter_model: TS0004_switch_module
   tuya_manufacturer_names:
+      - _TZ3000-CFM
       - 5ajpkyq6
       - mmkbptmx
       - ltt60asa
