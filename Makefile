@@ -263,7 +263,8 @@ secondary-outputs: $(BIN_FILE) $(OTA_FILE) $(LST_FILE) z2m_index z2m_index_force
 
 # SDK & Tools download targets
 
-SDK_VERSION := 3.6.8.6
+# SDK_VERSION := 3.6.8.6
+SDK_VERSION := 3.7.1.4
 
 sdk:
 	mkdir -p $(SDK_DIR)
