@@ -1,6 +1,5 @@
 
 OUT_DIR += /$(SRC_DIR) \
-/$(SRC_DIR)/patch_sdk \
 /$(SRC_DIR)/base_components \
 /$(SRC_DIR)/zigbee \
 /$(SRC_DIR)/zigbee/clusters \
