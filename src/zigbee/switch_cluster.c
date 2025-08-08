@@ -345,10 +345,9 @@ void switch_cluster_on_button_multi_press(zigbee_switch_cluster *cluster, u8 pre
 {
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
-//    tl_bdbReset2FN();
-//     factoryReset();
-//     SYSTEM_RESET();
-     zb_resetDevice();
+    zb_resetDevice(); // reboot
+    // tl_bdbReset2FN(); //leave network, start binding process
+    // zb_factoryReset(); // leave network, reset device and clear NVRam, reboot
   }
 }
 
