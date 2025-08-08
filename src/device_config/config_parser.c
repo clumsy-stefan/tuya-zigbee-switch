@@ -86,13 +86,14 @@ void onResetMultiClicked(void *_, u8 press_count)
      }
 */
 
-   tl_bdbReset2FN();
+//    SYSTEM_RESET();
+    tl_bdbReset2FN();
 //    nv_resetAll();
 
 // app only
 /*
-nv_resetModule(NV_MODULE_APP);
-init_nv_app();
+    nv_resetModule(NV_MODULE_APP);
+    init_nv_app();
 */
 
 //    bdb_linkKeyCfg(g_bdbCommissionSetting, 1);
