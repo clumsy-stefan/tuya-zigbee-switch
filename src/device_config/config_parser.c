@@ -64,7 +64,7 @@ void init_gpio_output(GPIO_PinTypeDef pin);
 void onResetClicked(void *_)
 {
   // zb_resetDevice(); // reboot
-  tl_bdbReset(); //leave network, start binding process
+  tl_bdbReset2FN(); //leave network, start binding process
   // zb_factoryReset();  // leave network, reset device and clear NVRam
 }
 
@@ -73,8 +73,9 @@ void onResetMultiClicked(void *_, u8 press_count)
   if (press_count > MULTI_PRESS_CNT_TO_RESET)
   {
     // tl_bdbReset(); //leave network, start binding process
-    zb_factoryReset(); // leave network, reset device and clear NVRam
-    zb_resetDevice(); // reboot 
+    // zb_factoryReset(); // leave network, reset device and clear NVRam
+    reset_to_default_config();
+    // zb_resetDevice(); // reboot 
   }
 }
 
