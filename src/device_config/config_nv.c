@@ -24,7 +24,7 @@ struct
 void device_config_write_to_nv()
 {
   nv_sts_t st = 0;
-  st = nv_flashWriteNew(1, NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size), (u8 *)&config.size);
+  st = nv_flashWriteNew(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size), (u8 *)&config.size);
 
   if(st != NV_SUCC)
   {
@@ -32,7 +32,7 @@ void device_config_write_to_nv()
     return;
   }
 
-  st = nv_flashWriteNew(1, NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size, (u8 *)config.data);
+  st = nv_flashWriteNew(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size, (u8 *)config.data);
 
   if(st != NV_SUCC)
   {
@@ -42,14 +42,14 @@ void device_config_write_to_nv()
 
 void device_config_remove_from_nv()
 {
-  nv_flashSingleItemRemove(NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size));
-  nv_flashSingleItemRemove(NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size);
+  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size));
+  nv_flashSingleItemRemove(NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size);
 }
 
 void device_config_read_from_nv()
 {
   nv_sts_t st = 0;
-  st = nv_flashReadNew(1, NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size), (u8 *)&config.size);
+  st = nv_flashReadNew(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_SIZE, sizeof(config.size), (u8 *)&config.size);
 
   if (st != NV_SUCC)
   {
@@ -59,7 +59,7 @@ void device_config_read_from_nv()
     return;
   }
 
-  st = nv_flashReadNew(1, NV_MODULE_APP, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size, (u8 *)config.data);
+  st = nv_flashReadNew(1, NV_MODULE_ZCL, NV_ITEM_ZCL_DEVICE_CONFIG_DATA, config.size, (u8 *)config.data);
 
   if (st != NV_SUCC)
   {
