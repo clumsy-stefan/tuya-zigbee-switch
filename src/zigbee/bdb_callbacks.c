@@ -183,7 +183,8 @@ void device_leaveCnfHandler(nlme_leave_cnf_t *pLeaveCnf)
 {
   if (pLeaveCnf->status == SUCCESS)
   {
-    tl_bdbReset2FN(); //leave network, start binding process
+    tl_bdbReset(); //leave network, start binding process
+    zb_resetDevice();
   }
 }
 

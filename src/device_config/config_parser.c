@@ -76,8 +76,8 @@ void onResetClicked(void *_)
     }
   }
 
-  // zb_resetDevice(); // reboot
-  tl_bdbReset2FN(); // clear network config and start binding process
+  tl_bdbReset(); // clear network config and start binding process
+  zb_resetDevice(); // reboot
   // zb_factoryReset();  // leave network, reset device and clear NVRam
 }
 
@@ -88,7 +88,7 @@ void onResetMultiClicked(void *_, u8 press_count)
     // tl_bdbReset2FN(); // clear network config and start binding process
     // zb_factoryReset(); // reset device and clear NVRam
     reset_to_default_config(); // clear app config => need to do an interview again afterwards!
-    // zb_resetDevice(); // reboot 
+    zb_resetDevice(); // reboot 
   }
 }
 
