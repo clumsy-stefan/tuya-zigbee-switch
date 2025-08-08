@@ -74,7 +74,7 @@ void onResetMultiClicked(void *_, u8 press_count)
   {
     // zb_resetDevice(); // reboot 
     // tl_bdbReset2FN(); //leave network, start binding process
-    zb_factoryReset(); // leave network, reset device and clear NVRam, reboot
+    factoryReset(); // leave network, reset device and clear NVRam, reboot
   }
 }
 
