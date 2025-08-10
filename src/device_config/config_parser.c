@@ -77,7 +77,7 @@ void onResetClicked(void *_)
   }
 
   tl_bdbReset(); // clear network config and start binding process
-  zb_resetDevice(); // reboot
+  // zb_resetDevice(); // reboot
   // zb_factoryReset();  // leave network, reset device and clear NVRam
 }
 
