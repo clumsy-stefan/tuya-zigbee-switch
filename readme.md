@@ -22,7 +22,7 @@ Note that rebranded versions may have different internals and may not work. "Zig
 | [ZWSM16-1-Zigbee](https://www.zigbee2mqtt.io/devices/ZWSM16-1-Zigbee.html) | AVATTO ZWSM16-1-Zigbee (blue socket)  | _TZ3000_4rbqgcuv | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/9)  | 
 | [ZWSM16-2-Zigbee](https://www.zigbee2mqtt.io/devices/ZWSM16-2-Zigbee.html) | AVATTO ZWSM16-2-Zigbee (blue socket)  | _TZ3000_mtnpt6ws | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/9)  | 
 | [ZWSM16-3-Zigbee](https://www.zigbee2mqtt.io/devices/ZWSM16-3-Zigbee.html) | AVATTO ZWSM16-3-Zigbee (blue socket)  | _TZ3000_hbic3ka3 | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/56)  | 
-| [ZWSM16-4-Zigbee](https://www.zigbee2mqtt.io/devices/ZWSM16-4-Zigbee.html) | AVATTO ZWSM16-4-Zigbee (blue socket)  | _TZ3000_5ajpkyq6 | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/9)  | 
+| [ZWSM16-4-Zigbee](https://www.zigbee2mqtt.io/devices/ZWSM16-4-Zigbee.html) | AVATTO ZWSM16-4-Zigbee (blue socket)  | _TZ3000_4channel | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/9)  | 
 | [TS0012](https://www.zigbee2mqtt.io/devices/TS0012.html) | Moes TS0012 (2 gang switch)  | _TZ3000_18ejxno0 | router / end_device | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/14)  | 
 | [TS0012](https://www.zigbee2mqtt.io/devices/TS0012.html) | Bseed TS0012 (2 gang switch)  | _TZ3000_f2slq5pj | router / end_device | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/pull/23)  | 
 | [TS0012](https://www.zigbee2mqtt.io/devices/TS0012.html) | Bseed TS0012 (2 gang switch)  | _TZ3000_xk5udnd6 | router / end_device | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/51)  | 
@@ -33,12 +33,12 @@ Note that rebranded versions may have different internals and may not work. "Zig
 | [TS0012](https://www.zigbee2mqtt.io/devices/TS0012.html) | Internet search says this is Zemismart 2 gang switch, needs confirmation  | _TZ3000_zmlunnhy | router / end_device | In progress |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/19)  | 
 | [LZWSM16-1](https://www.zigbee2mqtt.io/devices/LZWSM16-1.html) | Avatto TS0011  | _TZ3000_hbxsdd6k | router / end_device | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/16)  | 
 | [TS0003](https://www.zigbee2mqtt.io/devices/TS0003.html) | Moes MS-104CZ  | _TZ3000_pfc7i3kt | router | Supported |    -  | 
-| [TS0003_switch_module_2](https://www.zigbee2mqtt.io/devices/TS0003_switch_module_2.html) | IHSENO 3-gang Neutral  | _TZ3000_mhhxxjrs | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/85)  | 
-| [TS0004_switch_module_2](https://www.zigbee2mqtt.io/devices/TS0004_switch_module_2.html) | IHSENO 4-gang Neutral  | _TZ3000_knoj8lpk | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/105)  | 
+| [TS0003_switch_module_2](https://www.zigbee2mqtt.io/devices/TS0003_switch_module_2.html) | No-name 3-gang switch with Neutral  | _TZ3000_mhhxxjrs | router | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/85)  | 
 | [ZB08](https://www.zigbee2mqtt.io/devices/ZB08.html) | Girier-ZB08  | _TZ3000_ypgri8yz | router / end_device | Supported |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/37)  | 
-| [TS0004_switch_module](https://www.zigbee2mqtt.io/devices/TS0004_switch_module.html) | Avatto 4 gang switch module with N  | _TZ3000_ltt60asa | router | WIP, check issue for current status. |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/42)  | 
-| [TS0004_switch_module](https://www.zigbee2mqtt.io/devices/TS0004_switch_module.html) | No-name 4 gang switch module with N  | _TZ3000_mmkbptmx | router | Untested |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/66)  | 
 | [TS0003_switch_3_gang](https://www.zigbee2mqtt.io/devices/TS0003_switch_3_gang.html) | Avatto Zigbee 3 Gang (ZTS02RD-US-W3)  | _TZ3000_avky2mvc | router | WIP, expiremntal, see issue. |   [link](https://github.com/romasku/tuya-zigbee-switch/issues/41)  | 
+| [TS0004_switch_module](https://www.zigbee2mqtt.io/devices/TS0004_switch_module.html) | Generic TS0004 4-Gang Switch  | _TZ3000-CF | router | Experimental |    -  | 
+| [TS0004_switch_module](https://www.zigbee2mqtt.io/devices/TS0004_switch_module.html) | Generic TS0004 4-Gang Switch  | _TZ3000-CFM | router | Experimental |    -  | 
+| [Various](https://www.zigbee2mqtt.io/devices/Various.html) | Generic TS0004 4-Gang Switch  | _TZ3000_5ajpkyq6 | router | Experimental |    -  | 
 
 If you device is not supported, but it is some Tuya switch module, please check [the porting guide](./docs/porting_to_new_device.md).
 

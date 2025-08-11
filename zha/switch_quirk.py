@@ -12,6 +12,13 @@ class RelayMode(t.enum8):
     Detached = 0x00
     Raise = 0x01
     LongPress = 0x02
+    ShortPress = 0x03
+
+
+class BindedMode(t.enum8):
+    Raise = 0x01
+    LongPress = 0x02
+    ShortPress = 0x03
 
 
 class CustomOnOffConfigurationCluster(CustomCluster, OnOffConfiguration):
@@ -43,6 +50,20 @@ class CustomOnOffConfigurationCluster(CustomCluster, OnOffConfiguration):
         long_press_duration = ZCLAttributeDef(
             id=0xff03,
             type=t.uint16_t,
+            access="rw",
+            is_manufacturer_specific=True,
+        )
+
+        level_move_rate = ZCLAttributeDef(
+            id=0xff04,
+            type=t.uint8_t,
+            access="rw",
+            is_manufacturer_specific=True,
+        )
+
+        binded_mode = ZCLAttributeDef(
+            id=0xff05,
+            type=BindedMode,
             access="rw",
             is_manufacturer_specific=True,
         )
@@ -115,13 +136,15 @@ CONFIGS = [
     "TS0011-Avatto;TS0011-avatto;BB4u;LB5;SC0u;RC2;",
     "TS0011-Avatto;TS0011-avatto-ED;BB4u;LB5;SC0u;RC2;",
     "Tuya-TS0003-custom;TS0003-custom;BD3u;SC1u;SD7u;SC3u;RB5;RD4;RB4;",
-    "TS0003-IHS;TS0003-IHS;BC3u;LC2i;SD7u;RD2;SB4u;RD3;SB5u;RC0;",
-    "TS0004-IHS;TS0004-IHS;BC3u;LC2i;SB5u;RD2;SB4u;RD3;SD7u;RC0;SD4u;RC1;",
+    "TS0003-3CH-cus;TS0003-3CH-cus;BC3u;LC2i;SD7u;RD2;SB4u;RD3;SB5u;RC0;",
     "Girier-ZB08-custom;ZB08-custom;BA0u;LD7;SC2u;RC0;SC3u;RB4;SD2u;RB5;",
     "Girier-ZB08-custom-ED;ZB08-custom-ED;BA0u;LD7;SC2u;RC0;SC3u;RB4;SD2u;RB5;",
     "TS0004-Avv;TS0004-Avv;BB5u;LC1;SB4u;RC0;SD2u;RC4;SC3u;RD4;SC2u;RD7;",
     "Tuya-TS0004-custom;TS0004-custom;BB6u;LB1;SC1u;RB7;SC2u;RB5;SC3u;RB4;SD2u;RC4;",
     "Avatto-3-touch;Avatto-3-touch;LB5;SD3u;RC2;SD7u;RC3;SD4u;RD2;M;",
+    "Custom-FW;TS0004-CF;",
+    "Custom-FW;TS0004-CF;",
+    "Custom-FW;CLEAN-CF;",
 ]
 
 for config in CONFIGS:
@@ -184,6 +207,14 @@ for config in CONFIGS:
                 step=1,
                 endpoint_id=endpoint_id,
             )
+            .enum(
+                CustomOnOffConfigurationCluster.AttributeDefs.binded_mode.name,
+                BindedMode,
+                CustomOnOffConfigurationCluster.cluster_id,
+                translation_key="binded_mode",
+                fallback_name="Binded mode",
+                endpoint_id=endpoint_id,
+            )
             .number(
                 CustomOnOffConfigurationCluster.AttributeDefs.long_press_duration.name,
                 CustomOnOffConfigurationCluster.cluster_id,
@@ -191,6 +222,16 @@ for config in CONFIGS:
                 fallback_name="Long press mode",
                 min_value=0,
                 max_value=5000,
+                step=1,
+                endpoint_id=endpoint_id,
+            )
+            .number(
+                CustomOnOffConfigurationCluster.AttributeDefs.level_move_rate.name,
+                CustomOnOffConfigurationCluster.cluster_id,
+                translation_key="level_move_rate",
+                fallback_name="Level move rate",
+                min_value=1,
+                max_value=255,
                 step=1,
                 endpoint_id=endpoint_id,
             )
