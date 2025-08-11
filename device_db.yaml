@@ -184,9 +184,7 @@ TS0004_AVATTO:
   firmware_image_type: 43529
   stock_converter_model: TS0004_switch_module_2
   tuya_manufacturer_names:
-    - _TZ3000_5ajpkyq6 
-    - Tuya-TS0004-Avatto-custom
-    - TS0004-AV-CUS
+      - _TZ3000_4channel # _TZ3000_5ajpkyq6 / Tuya-TS0004-Avatto-custom
   old_zb_models:
     - TS0004-Avatto-custom
     - TS0004-AV-CUS
@@ -471,9 +469,9 @@ TS0003:
   human_name: Moes MS-104CZ
   status: Supported
   github_issue:
-TS0003_IHS:
-  name: TS0003-IHS
-  config_str: TS0003-IHS;TS0003-IHS;BC3u;LC2i;SD7u;RD2;SB4u;RD3;SB5u;RC0;
+TS0003_3CH:
+  name: TS0003-3CH-cus
+  config_str: TS0003-3CH-cus;TS0003-3CH-cus;BC3u;LC2i;SD7u;RD2;SB4u;RD3;SB5u;RC0;
   device_type: router
   tuya_manufacturer_id: 4417
   tuya_image_type: 54179
@@ -481,25 +479,9 @@ TS0003_IHS:
   stock_converter_model: TS0003_switch_module_2
   tuya_manufacturer_names:
     - _TZ3000_mhhxxjrs
-    - TS0003-3CH-cus
-  old_zb_models:
-    - TS0003-3CH-cus
-  human_name: IHSENO 3-gang Neutral
+  human_name: No-name 3-gang switch with Neutral
   status: Supported
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/85
-TS0004_IHS:
-  name: TS0004-IHS
-  config_str: TS0004-IHS;TS0004-IHS;BC3u;LC2i;SB5u;RD2;SB4u;RD3;SD7u;RC0;SD4u;RC1;
-  device_type: router
-  tuya_manufacturer_id: 4417
-  tuya_image_type: 54179
-  firmware_image_type: 43548
-  stock_converter_model: TS0004_switch_module_2
-  tuya_manufacturer_names:
-    - _TZ3000_knoj8lpk
-  human_name: IHSENO 4-gang Neutral
-  status: Supported
-  github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/105
 TS0013_GIRIER:
   name: Girier-ZB08-custom
   config_str: Girier-ZB08-custom;ZB08-custom;BA0u;LD7;SC2u;RC0;SC3u;RB4;SD2u;RB5;
@@ -537,7 +519,7 @@ TS0004_AVATTO_NEUTRAL:
   firmware_image_type: 43540
   stock_converter_model: TS0004_switch_module
   tuya_manufacturer_names:
-    - _TZ3000_ltt60asa
+    - _TZ3000_4channel # _TZ3000_ltt60asa
   human_name: Avatto 4 gang switch module with N
   status: WIP, check issue for current status.
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/42
@@ -550,7 +532,7 @@ TS0004:
   firmware_image_type: 43545
   stock_converter_model: TS0004_switch_module
   tuya_manufacturer_names:
-    - _TZ3000_mmkbptmx
+    - _TZ3000_4channel # _TZ3000_mmkbptmx
   human_name: No-name 4 gang switch module with N
   status: Untested
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/66
@@ -567,3 +549,61 @@ AVATTO_3_GANG_TOUCH:
   human_name: Avatto Zigbee 3 Gang (ZTS02RD-US-W3)
   status: WIP, expiremntal, see issue.
   github_issue: https://github.com/romasku/tuya-zigbee-switch/issues/41
+TS0004_CF:
+  name: TS0004 generic 4-Gang
+  config_str: Custom-FW;TS0004-CF;
+  device_type: router
+  tuya_manufacturer_id: 4417
+  tuya_image_type: 54179
+  firmware_image_type: 43999
+  stock_converter_model: TS0004_switch_module
+  tuya_manufacturer_names:
+      - _TZ3000-CF
+  old_zb_models:
+      - 5ajpkyq6 
+      - mmkbptmx
+      - ltt60asa
+      - 5ajpkyq6vv
+      - knoj8lpk
+  human_name: Generic TS0004 4-Gang Switch
+  status: Experimental
+  github_issue:
+TS0004_CFM:
+  name: TS0004 generic 4-Gang
+  config_str: Custom-FW;TS0004-CF;
+  device_type: router
+  tuya_manufacturer_id: 4417
+  tuya_image_type: 43999
+  firmware_image_type: 43999
+  stock_converter_model: TS0004_switch_module
+  tuya_manufacturer_names:
+      - _TZ3000-CFM
+      - 5ajpkyq6
+      - mmkbptmx
+      - ltt60asa
+      - knoj8lpk
+  human_name: Generic TS0004 4-Gang Switch
+  status: Experimental
+  github_issue:
+CLEAN_CF:
+  name: Generic clean FW
+  config_str: Custom-FW;CLEAN-CF;
+  device_type: router
+  tuya_manufacturer_id: 4417
+  tuya_image_type: 54179
+  firmware_image_type: 43999
+  stock_converter_model: Various
+  tuya_manufacturer_names:
+      - _TZ3000_5ajpkyq6 
+      - _TZ3000_mmkbptmx
+      - _TZ3000_ltt60asa
+      - _TZ3000_5ajpkyq6vv
+      - _TZ3000_knoj8lpk
+  old_zb_models:
+      - _Tuya-TS0004-Avatto-custom
+      - TS0004-Avatto-custom
+      - TS0004-Avv
+      - _TZ3000_4channel
+  human_name: Generic TS0004 4-Gang Switch
+  status: Experimental
+  github_issue:
